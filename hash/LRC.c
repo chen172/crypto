@@ -45,9 +45,11 @@ int main()
 #endif
         // block operation
         int i = 0, j = 0;
+        for (i = 0;i < HASH_CODE_LEN; i++)
+                hash_code[i] = 0x00;
         for (i = 0; i < HASH_CODE_LEN; i++)
                 for (j = 0; j < block_num; j++)
-                        hash_code[i] = (padding_text[i+j]) ^ (padding_text[i+HASH_CODE_LEN+j-1]);
+                        hash_code[i] = hash_code[i] ^ padding_text[i+HASH_CODE_LEN*j];
 
 
         for (i = 0; i < HASH_CODE_LEN; i++)
