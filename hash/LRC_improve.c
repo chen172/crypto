@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <strings.h>
 #include <stdlib.h>
-
+// use CBC mode improve LRC
 #define HASH_CODE_LEN 16
 // plaintext lens
 #define LEN_LEN_TEXT 5
