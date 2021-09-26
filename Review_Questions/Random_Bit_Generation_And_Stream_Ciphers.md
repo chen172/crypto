@@ -34,5 +34,5 @@ the original plaintexts.
 Random permutation.
 
 ## ref
-[1] Kumar, I. Cryptology. Laguna Hills, CA: Aegean Park Press, 1997.
-[2] Dawson, E., and Nielsen, L. "Automated Cryptoanalysis of XOR Plaintext Strings."Cryptologia, April 1996.
+- [1] Kumar, I. Cryptology. Laguna Hills, CA: Aegean Park Press, 1997.
+- [2] Dawson, E., and Nielsen, L. "Automated Cryptoanalysis of XOR Plaintext Strings."Cryptologia, April 1996.
