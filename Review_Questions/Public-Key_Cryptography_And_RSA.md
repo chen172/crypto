@@ -27,3 +27,7 @@ algorithm applied to the message or to a small block of data that is a function 
 
 **Key exchange:** Two sides cooperate to exchange a session key, which is a secret key for symmetric encryption generated 
 for use for a particular transaction (or session) and valid for a short period of time.
+
+# 4.What requirements must a public-key cryptosystems fulfill to be a secure algorithm?
+- It is computationally infeasible for an adversary, knowing the public key, to determine the private key.
+- It is computationally infeasible for an adversary, knowing the public key, and a ciphertext, to recover the original message. 
