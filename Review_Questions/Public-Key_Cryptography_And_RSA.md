@@ -31,3 +31,17 @@ for use for a particular transaction (or session) and valid for a short period o
 # 4.What requirements must a public-key cryptosystems fulfill to be a secure algorithm?
 - It is computationally infeasible for an adversary, knowing the public key, to determine the private key.
 - It is computationally infeasible for an adversary, knowing the public key, and a ciphertext, to recover the original message. 
+
+# 5.What is a one-way function?
+A one-way function is one that maps a domain into a range such that every function value has a unique inverse, with the 
+condition that the calculation of the function is easy, whereas the calculation of the inverse is infeasible.
+
+# 6.What is a trap-door one way function?
+Which is easy to calculate in one direction and infeasible to calculate in the other direction unless certain additional 
+information is known.
+
+# 7.Describle in general terms an efficient procedure for picking a prime number.
+1. Pick an odd integer n at random (eg., using a pseudorandom number generator).
+2. Pick an integer a less than n at random.
+3. Perform the probabilistic primarily test, such as Miller-Rabin, with a as a parameter. If n fails the test, reject the value n and go to step 1.
+4. If n has passed a sufficient number of tests, accept n; otherwise, go to step 2.
