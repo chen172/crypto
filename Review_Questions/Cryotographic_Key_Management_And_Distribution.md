@@ -37,3 +37,18 @@ have decrypted message (1), the presence of N1 in message (2) assures A that the
 2. Each participant registers a public key with the directory authority. Registration would have to be in person or by some form of secure authenticated communication.
 3. A participant may replace the existing key with a new one at any time, either because of the desire to replace a public key that has already been used for a larger amount of data, or because the corresponding private key has been compromised in some way.
 4. Participants could also access the dircetory electronically. For this purpose, secure, authenticated communication from the authority to the participant is mandatory. 
+
+# 7. What is a public-key certificate?
+In essence, a certificate consists of a public key, an indentifier of the key owner, and the whole block signed by a trusted third party.
+
+# 8. What are the requirements for the use of a public-key certificate scheme?
+1. Any participant can read a certificate to determine the name and public key of the certificate's owner.
+2. Any participant can verify that the certificate originated from the certificate authority and is not counterfeit.
+3. Only the certificate authority can create and update cerrtificates.
+
+# 9. What is the purpose of the X.509 standard?
+Formatting public-key certificates.
+
+# 10. What is a chain of certificates?
+
+# 11. How is an X.509 certificate revoked?
