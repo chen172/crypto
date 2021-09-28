@@ -33,4 +33,7 @@ have decrypted message (1), the presence of N1 in message (2) assures A that the
 4. Public-key certificates.
 
 # 6. What are the essential ingredients of a public-key directory?
-
+1. The authority maintains a directory with a {name, public key} entry for each participant.
+2. Each participant registers a public key with the directory authority. Registration would have to be in person or by some form of secure authenticated communication.
+3. A participant may replace the existing key with a new one at any time, either because of the desire to replace a public key that has already been used for a larger amount of data, or because the corresponding private key has been compromised in some way.
+4. Participants could also access the dircetory electronically. For this purpose, secure, authenticated communication from the authority to the participant is mandatory. 
