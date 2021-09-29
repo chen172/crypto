@@ -21,3 +21,13 @@ key and produces the original plaintext.
 # 3, How many keys are required for two people to communicate via a cipher?
 - single key for symmetric encryption.
 - two key for asymmetric encryption.
+
+# 4, What is the difference between a block cipher and a stream cipher?
+A **block cipher** processes the input one block of elements at a time, producing an output block for each input block. A **stream cipher** processes the input elements continuously, producing output one element at a time, as it goes long.
+
+# 5. What are two general approaches to attacking a cipher?
+**Cryptanalysis:** Cryptanalytic attacks rely on the nature of the algorithm plus perhaps some knowledge of the general 
+characteristics of the plaintext or even some sample plaintext-ciphertext pairs, This type of attack exploits the characteristics of the algorithm to attempt to deduce a specific plaintext or to deduce the key being used.
+
+**Brute-force attack:** The attacker tries every possible key on a piece of Ciphertext until an intelligible translation into
+plaintext is obtained. On average, half of all possible keys must be tried to achieve success.
