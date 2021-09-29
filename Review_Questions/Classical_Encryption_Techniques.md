@@ -64,3 +64,8 @@ information to determine uniquely the corresponding plaintext, no matter how muc
 2. An encryption scheme is said to be computationally secure if either of the following two criteria are met.
 - The cost of breaking the cipher exceeds the value of the encrypted information.
 - The time required to break the cipher exceeds the useful lifetime of the information.
+
+# 8. Briefly define the Caesar cipher.
+1. The Caesar cipher involves replacing each letter of the alphabet with the letter standing three places futher down the alphabet.
+2. General Caesar algorithm is:
+C = E(k, p) = (p+k) mod 26
