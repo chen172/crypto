@@ -31,3 +31,29 @@ characteristics of the plaintext or even some sample plaintext-ciphertext pairs,
 
 **Brute-force attack:** The attacker tries every possible key on a piece of Ciphertext until an intelligible translation into
 plaintext is obtained. On average, half of all possible keys must be tried to achieve success.
+
+# 6. List and briefly define types of cryptanalytic attacks based on what is known to the attack.
+1. Ciphertext Only
+- Encryption algorithm 
+- Ciphertext 
+
+2. Known Plaintext
+- Encryption algorithm 
+- Ciphertext 
+- One or more plaintext-ciphertext pairs formed with secret key
+
+3. Chosen Plaintext 
+- Encryption algorithm 
+- Ciphertext 
+- Plaintext message chosen by cryptanalyst, together with its corresponding Ciphertext generated with the secret key.
+
+4. Chosen Ciphertext 
+- Encryption algorithm 
+- Ciphertext 
+- Ciphertext Chosen by cryptanalyst, together with its corresponding decryptd plaintext generated with the secret key.
+
+5. Chosen Text
+- Encryption algorithm 
+- Ciphertext 
+- Plaintext message chosen by cryptanalyst, together with its corresponding Ciphertext generated with the secret key.
+- Ciphertext Chosen by cryptanalyst, together with its corresponding decryptd plaintext generated with the secret key.
