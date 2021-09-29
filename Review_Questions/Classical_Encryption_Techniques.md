@@ -17,3 +17,7 @@ key and produces the original plaintext.
 **Substitution:** in which  each element in the plaintext (bit, letter, group of bits or letters) is mapped into another element.
 
 **Transposition:** in which elements in the plaintext are rearranged.
+
+# 3, How many keys are required for two people to communicate via a cipher?
+- single key for symmetric encryption.
+- two key for asymmetric encryption.
