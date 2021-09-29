@@ -69,3 +69,8 @@ information to determine uniquely the corresponding plaintext, no matter how muc
 1. The Caesar cipher involves replacing each letter of the alphabet with the letter standing three places futher down the alphabet.
 2. General Caesar algorithm is:
 C = E(k, p) = (p+k) mod 26
+
+# 9. Briefly define the monoalphabetic cipher.
+Any permutation of the 26 alphabetic characters, there are 26! possible keys.
+
+# 10. Briefly define the Playfair cipher.
