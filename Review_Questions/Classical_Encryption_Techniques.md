@@ -74,3 +74,16 @@ C = E(k, p) = (p+k) mod 26
 Any permutation of the 26 alphabetic characters, there are 26! possible keys.
 
 # 10. Briefly define the Playfair cipher.
+
+# 11. What is the difference between a monoalphabetic cipher and a polyalphabetic cipher?
+Ployalphabetic cipher is to use different monoalphabetic substitutions as one proceeds through the plaintext message.
+
+# 12. What are two problems with one-time pad?
+1. There is the practical problem of making large quantities of random keys. Any heavily used system might require millions 
+of random characters on a regular basis. Supplying truly random characters in this volume is a significant task.
+
+2. Even more daunting is the problem of key distribution and protection. For every message to be sent, a key of equal 
+length is needed by both sender and receiver. Thus, a mammoth key distribution problem exists.
+
+# 13. What is a transposition cipher?
+By preforming some sort of permutation on the plaintext letters.
