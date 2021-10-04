@@ -13,3 +13,7 @@ ref Question 1
 # 3. What is the role of a compression function in a hash function?
 The hash algorithm involves repeated use of a **compression function**, f, that takes two inputs (an n-bit input from the previous step, called the chaining variable, and a b-bit block) and produces an n-bit output.
 
+# 4. What is the differnence between little-endian and big-endian?
+The values are stored in **big-endian format**, which is the most significant byte of a word in the low-address (leftmost) byte position. In contrast, in **little-endian format**, the least significant byte is stored in the lowest address.
+
+# 5. What basic arithmetical and logical functions are used in SHA?
