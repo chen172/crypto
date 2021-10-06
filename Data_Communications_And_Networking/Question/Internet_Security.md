@@ -8,6 +8,7 @@ Because IPSec requires a logical relationship between two hosts. The security as
 # 5. What does ESP add to the IP packet?
 ESP adds a header and trailer. ESP's authentication data are added at the end of the packet.
 The fields for the header and trailer are as follows:
+
 **Security Paramter Index**
 **Sequence Number**
 **Padding**
