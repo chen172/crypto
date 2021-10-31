@@ -61,3 +61,27 @@ Size, geographical coverage, and ownership.
 
 # 11. Why are protocols needed?
 Without a protocol, two devices may be connected but not communicating.
+
+# 12. In a LAN with a link-layer switch, Host 1 wants to sends a message to Host 3. Since communication is through the link-layer switch, does the switch need to have an address? Explain.
+The switch need to have an MAC address. Because switch has two layer, physical layer and link layer.
+
+# 13. How many point-to-point WANs are needed to connect n LANs if each LAN should be able to directly communicate with any other LAN?
+n*(n-1)/2
+
+# 14. When we use local telephones to talk to a friend, are we using a circuit-switched network or a packet-switched network?
+circuit-switched network.
+
+# 15. When a resident uses a dial-up or DLS service to connect to the Internet, what is the role of the telephone company?
+
+# 16. What is the first principle we discussed in this chapter for protocol layering that needs to be followed to make the communication bidirectional?
+
+# 17. Explain the difference between an Internet draft and a proposed standard.
+A proposed standard is elevated to draft standard status after at least two successful independent and interoperable implementations.
+
+# 18. Explain the difference between a required RFC and a recommended RFC.
+1. An RFC is labeled **required** if it must be implemented by all Internet systems to achieve minimum conformance.
+2. An RFC is labeled **recommended** is not required for minimum conformance.
+
+# 19. Explain the difference between the duties of the IETF and IRTF.
+1. IETF is responsible for identifying operational problems and proposing solutions to these problems.
+2. IRTF focuses on long-term research topics related to Interrnet protocols, applications, architecture, and technology.
