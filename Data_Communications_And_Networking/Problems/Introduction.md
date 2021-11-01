@@ -25,7 +25,7 @@ LAN.
 Communication with the station will fail. But other station communication would normal.
 
 # 7. In the bus topology, what happens of one of the stations is unplugged?
-
+Unplugging a station has no effect on the operation of the rest of the network.
 # 8.
 
 # 9. When a party makes a local telephone call to another party, is this a point-to-point or multipoint connection? Explain the answer.
