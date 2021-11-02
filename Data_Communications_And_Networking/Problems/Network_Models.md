@@ -41,6 +41,21 @@ c. physical layer
 It has a filed contains the protocol.
 
 # 9. Assume a private internet uses three different protocols at the data-link layer (L1, L2, L3). Redraw Figure 2.10 with this assumption. Can we say that, in the data-link layer, we have demultiplexing at the source node and multiplexing at the destination node?
-No, beacause the three different protocols have to use one after another.
 
-# 10. Assume that a private internet requires that the messages at the 
+
+# 10. Assume that a private internet requires that the messages at the application layer be encrypted and decrypted for security purposes. If we need to add some information about the encryption/decryption process (such as the algorithms used in the process), does it mean that we are adding one layer to the TCP/IP protocol suite? Redraw the TCP/IP layers (Figure 2.4 part b) if you think so.
+No.
+
+# 11. Protocol layering can be found in many aspects of our lives such as air traveling. Imageine you make a round-trip to spend some time on vacation at a resort. You need to go through some processes at your city airport before flying. You also need to go through some processes when you arrive at the resort airport. Show the protocol layering for the round trip using some layers such as baggage checking/claiming, boarding/unboarding, takeoff/landing.
+
+# 12. The presentation of data is becoming more and more important in today's Internet. Some people argue that the TCP/IP protocol suite needs to add a new layer to take care of the presentation of data. If this new layer is added in the future, where should its position be in the suite?
+Between the transport layer and the application layer.
+
+# 13. In an internet, we change the LAN technology to a new one. Which layers in the TCP/IP protocol suite need to be changed?
+data-link layer and physcical layer.
+
+# 14. Assume that an application-layer protocol is written to use the services of UDP. Can the application-layer protocol uses the services of TCP without change?
+No.
+
+# 15. Using the internet in Figure 1.11 in the text, show the layers of the TCP/IP protocol suite and the flow of data when two hosts, one on the west coast and the other on the east coast, exchange message.
+
