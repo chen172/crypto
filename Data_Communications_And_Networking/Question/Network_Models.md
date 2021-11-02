@@ -40,9 +40,10 @@ c. data-link layer: MAC
 No, a protocol needs tot have a field in its header to identify to which protocol the encapsulated packets belong.
 
 # 13. Can you explain why we did not mention multiplexing/demultiplexing services for the application layer?
+It does not provide services to any layer.
 
 # 14. Assume we want to connect two isolated hosts together to let each host communicate with the other. Do we need a link-layer switch between the two?Explain.
 No.
 
 # 15. If there is a single path between the source host and the destination host, do we need a router between the two hosts?
-If the two hosts belong to the same network, no. otherwise, yes.
+No, router is used for choosen path.
