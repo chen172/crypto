@@ -37,3 +37,12 @@ b. network layer: ip
 c. data-link layer: MAC
 
 # 12. When we say that the transport layer multiplexes and demultiplexes applcation layer messages, do we mean that a transport-layer protocol can combine several messages from the application layer in one packet? Explain.
+No, a protocol needs tot have a field in its header to identify to which protocol the encapsulated packets belong.
+
+# 13. Can you explain why we did not mention multiplexing/demultiplexing services for the application layer?
+
+# 14. Assume we want to connect two isolated hosts together to let each host communicate with the other. Do we need a link-layer switch between the two?Explain.
+No.
+
+# 15. If there is a single path between the source host and the destination host, do we need a router between the two hosts?
+If the two hosts belong to the same network, no. otherwise, yes.
