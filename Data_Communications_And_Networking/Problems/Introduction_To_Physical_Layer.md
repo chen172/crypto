@@ -87,4 +87,40 @@ SNR = 100 / 5 = 20, 4 * log2(20+1) = 16 Kbps.
 # 25. A signal with 200 milliwatts power passes through 10 devices, each with an average noise of 2 microwatts. What is the SNR? What is the SNRdB?
 200 * 10^3 / 2 / 10 = 10000, 10 * 4 = 40dB.
 
-# 26. If the peak voltage value 
+# 26. If the peak voltage value of a signal is 20 times the peak voltage value of the noise, what is the SNR? What is the SNRdB?
+SNR = 20, SNRdB = 10 * log10(20)
+
+# 27. What is the theoretical capacity of a channel in each of the following cases?
+a. Bandwidth: 20 KHz SNRdB = 40
+b. Bandwidth: 200 KHz SNRdB = 4
+c. Bandwidth: 1 MHz SNRdB = 20
+
+a. SNR = 1000, C = 20 * log2(1001) = 200 kbps
+b. SNR = 10^(0.4), C = 200 * log2(10^(0.4)+1) = 400 kbps
+c. SNR = 100, C = 1 * log2(101) = 7 Mbps
+
+# 28. We need to upgrade a channel to a higher bandwidth. Answer the following questions:
+a. How is the rate improved if we double the bandwidth?
+b. How is the rate improved if we double the SNR?
+
+a. the rate is doubled
+b. the rate is log2(2SNR+1) / log2(SNR+1)
+
+# 29. We have a channel with 4 KHz bandwidth. If we want to send data at 100 Kbps, what is the minimum SNRdB? What is the SNR?
+SNR = 2^25 - 1, SNRdB = 10 * log10(SNR)
+
+# 30. What is the transmission time of a packet sent by a station if the length of the packet is 1 million bytes and the bandwidth of the channel is 200 Kbps?
+1000000 * 8 / 200000 = 40s
+
+# 31. What is the length of a bit in a channel with a propagation speed of 2 * 10^8 m/s if the channel bandwidth is
+a. 1Mbps: 200m
+b. 10Mbps: 20m
+c. 100Mbps: 2m
+
+# 32. How many bits can fit on a link with a 2 ms delay if the bandwidth of the link is 
+a. 1Mbps: 2000 bit
+b. 10Mbps: 20000 bit
+c. 100Mbps: 200000 bit
+
+# 33. What is the total delay (latency) for a frame of size 5 million bits that is being sent on a link with 10 routers each having a queuing time of 2us and a processing time of 1us. The length of the link is 2000 Km. The speed of light inside the link is 2 * 10^8 m/s. The link has a bandwidth of 5 Mbps. Which compoent of the total delay is dominant?Which one is negligible?
+Total delay is 1.01s. Transmission time is dominant, is 1s. propagation time, 10ms. processing time and queuing time. 
