@@ -124,6 +124,65 @@ hmac_sha1() {
 		printf("%02x", digest[i]);
 	printf("\n");
 }
+
+void 
+__hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
+	int i = 0, j = 0;
+	unsigned int outlen;	
+
+	// 1.Append zeros to left end of K to create a b-bit string K+
+	uint8_t k_ipad[SHA1_BLOCK_LENGTH];
+	uint8_t k_opad[SHA1_BLOCK_LENGTH];
+	uint8_t digest[100];
+	
+	// init k_ipad, k_opad to K+
+	for (i = 0; i < len; i++) {
+		k_ipad[i] = key[i];
+		k_opad[i] = key[i];
+	}
+	for (j = i; j < SHA1_BLOCK_LENGTH; j++) {
+		k_ipad[j] = 0;
+		k_opad[j] = 0;
+	}
+
+	// 2.XOR K+ with ipad to produce the b-bit block Si
+	// 5.XOR K+ with opad to produce the b-bit block S0
+	for (i = 0; i < SHA1_BLOCK_LENGTH; i++) {
+		k_ipad[i] ^= 0x36;
+		k_opad[i] ^= 0x5C;
+	}
+
+	OpenSSL_add_all_algorithms();
+
+	unsigned char md_value[EVP_MAX_MD_SIZE];
+	unsigned int md_len;
+	EVP_MD_CTX *hashctx;
+	hashctx = EVP_MD_CTX_new();
+	const EVP_MD *hashptr = EVP_get_digestbyname("SHA1");
+
+	EVP_MD_CTX_init(hashctx);
+	EVP_DigestInit_ex(hashctx, hashptr, NULL);
+	// 3. Append M to Si
+	// 4. Apply H to the stream generated in step 3
+	EVP_DigestUpdate(hashctx, k_ipad, SHA1_BLOCK_LENGTH);
+	EVP_DigestUpdate(hashctx, message, message_len);
+	EVP_DigestFinal_ex(hashctx, md_value, &md_len);
+
+	
+	EVP_MD_CTX_init(hashctx);
+	EVP_DigestInit_ex(hashctx, hashptr, NULL);
+	// 6. Append the hash result from step 4 to S0
+	// 7. Apply H to the stream generated in step 6 and output the result
+	EVP_DigestUpdate(hashctx, k_opad, SHA1_BLOCK_LENGTH);
+	EVP_DigestUpdate(hashctx, md_value, md_len);
+	EVP_DigestFinal_ex(hashctx, digest, &md_len);
+	EVP_MD_CTX_free(hashctx);
+
+	printf("digest len is %d\n", md_len);
+	for (i = 0; i < md_len; i++)
+		printf("%02x", digest[i]);
+	printf("\n");
+}
 int main()
 {
 	hmac_sha1();
