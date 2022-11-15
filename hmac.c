@@ -131,6 +131,7 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 	unsigned int outlen;	
 
 	// 1.Append zeros to left end of K to create a b-bit string K+
+	// K is for key, K+ is for appened key
 	uint8_t k_ipad[SHA1_BLOCK_LENGTH];
 	uint8_t k_opad[SHA1_BLOCK_LENGTH];
 	uint8_t digest[100];
@@ -160,6 +161,8 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 	hashctx = EVP_MD_CTX_new();
 	const EVP_MD *hashptr = EVP_get_digestbyname("SHA1");
 
+	// sha1 hash
+	/*******************************************************************/
 	EVP_MD_CTX_init(hashctx);
 	EVP_DigestInit_ex(hashctx, hashptr, NULL);
 	// 3. Append M to Si
@@ -167,8 +170,10 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 	EVP_DigestUpdate(hashctx, k_ipad, SHA1_BLOCK_LENGTH);
 	EVP_DigestUpdate(hashctx, message, message_len);
 	EVP_DigestFinal_ex(hashctx, md_value, &md_len);
+	/*******************************************************************/
 
-	
+	// sha1 hash
+	/*******************************************************************/
 	EVP_MD_CTX_init(hashctx);
 	EVP_DigestInit_ex(hashctx, hashptr, NULL);
 	// 6. Append the hash result from step 4 to S0
@@ -176,6 +181,7 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 	EVP_DigestUpdate(hashctx, k_opad, SHA1_BLOCK_LENGTH);
 	EVP_DigestUpdate(hashctx, md_value, md_len);
 	EVP_DigestFinal_ex(hashctx, digest, &md_len);
+	/*******************************************************************/
 	EVP_MD_CTX_free(hashctx);
 
 	printf("digest len is %d\n", md_len);
