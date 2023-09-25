@@ -17,6 +17,7 @@ set(SSL_LIBS "${THIRD_PARTY_DIR}/openssl_x64-windows/lib/libssl.lib")
 
 add_executable(${Program}
 	hmac.c
+	sha1.c
 )
 
 target_link_libraries(${Program} PUBLIC

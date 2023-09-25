@@ -5,6 +5,8 @@
 #include <openssl/err.h>
 #include <string.h>
 
+#include "sha1.h"
+
 // n: hash code length
 // 160 bit
 #define SHA1_DIGEST_LENGTH 20
@@ -157,32 +159,27 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 
 	unsigned char md_value[EVP_MAX_MD_SIZE];
 	unsigned int md_len;
-	EVP_MD_CTX *hashctx;
-	hashctx = EVP_MD_CTX_new();
-	const EVP_MD *hashptr = EVP_get_digestbyname("SHA1");
+	SHA1_CTX sha1_ctx;
 
 	// sha1 hash
 	/*******************************************************************/
-	EVP_MD_CTX_init(hashctx);
-	EVP_DigestInit_ex(hashctx, hashptr, NULL);
+	sha1_init(&sha1_ctx);
 	// 3. Append M to Si
 	// 4. Apply H to the stream generated in step 3
-	EVP_DigestUpdate(hashctx, k_ipad, SHA1_BLOCK_LENGTH);
-	EVP_DigestUpdate(hashctx, message, message_len);
-	EVP_DigestFinal_ex(hashctx, md_value, &md_len);
+	sha1_update(&sha1_ctx, k_ipad, SHA1_BLOCK_LENGTH);
+  sha1_update(&sha1_ctx, message, message_len);
+  sha1_final(&sha1_ctx, md_value);
 	/*******************************************************************/
 
 	// sha1 hash
 	/*******************************************************************/
-	EVP_MD_CTX_init(hashctx);
-	EVP_DigestInit_ex(hashctx, hashptr, NULL);
+	sha1_init(&sha1_ctx);
 	// 6. Append the hash result from step 4 to S0
 	// 7. Apply H to the stream generated in step 6 and output the result
-	EVP_DigestUpdate(hashctx, k_opad, SHA1_BLOCK_LENGTH);
-	EVP_DigestUpdate(hashctx, md_value, md_len);
-	EVP_DigestFinal_ex(hashctx, digest, &md_len);
+	sha1_update(&sha1_ctx, k_opad, SHA1_BLOCK_LENGTH);
+  sha1_update(&sha1_ctx, md_value, md_len);
+  sha1_final(&sha1_ctx, digest);
 	/*******************************************************************/
-	EVP_MD_CTX_free(hashctx);
 
 	printf("digest len is %d\n", md_len);
 	for (i = 0; i < md_len; i++)
