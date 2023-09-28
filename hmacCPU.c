@@ -5,6 +5,7 @@
 #include <openssl/err.h>
 #include <string.h>
 
+#include "hmac.h"
 #include "sha1.h"
 
 // n: hash code length
@@ -127,69 +128,11 @@ hmac_sha1() {
 	printf("\n");
 }
 
-void 
-__hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
-	int i = 0, j = 0;
-	unsigned int outlen;	
-
-	// 1.Append zeros to left end of K to create a b-bit string K+
-	// K is for key, K+ is for appened key
-	uint8_t k_ipad[SHA1_BLOCK_LENGTH];
-	uint8_t k_opad[SHA1_BLOCK_LENGTH];
-	uint8_t digest[100];
-	
-	// init k_ipad, k_opad to K+
-	for (i = 0; i < len; i++) {
-		k_ipad[i] = key[i];
-		k_opad[i] = key[i];
-	}
-	for (j = i; j < SHA1_BLOCK_LENGTH; j++) {
-		k_ipad[j] = 0;
-		k_opad[j] = 0;
-	}
-
-	// 2.XOR K+ with ipad to produce the b-bit block Si
-	// 5.XOR K+ with opad to produce the b-bit block S0
-	for (i = 0; i < SHA1_BLOCK_LENGTH; i++) {
-		k_ipad[i] ^= 0x36;
-		k_opad[i] ^= 0x5C;
-	}
-
-	OpenSSL_add_all_algorithms();
-
-	unsigned char md_value[EVP_MAX_MD_SIZE];
-	unsigned int md_len = 20;
-	SHA1_CTX sha1_ctx;
-
-	// sha1 hash
-	/*******************************************************************/
-	sha1_init(&sha1_ctx);
-	// 3. Append M to Si
-	// 4. Apply H to the stream generated in step 3
-	sha1_update(&sha1_ctx, k_ipad, SHA1_BLOCK_LENGTH);
-  sha1_update(&sha1_ctx, message, message_len);
-  sha1_final(&sha1_ctx, md_value);
-	/*******************************************************************/
-
-	// sha1 hash
-	/*******************************************************************/
-	sha1_init(&sha1_ctx);
-	// 6. Append the hash result from step 4 to S0
-	// 7. Apply H to the stream generated in step 6 and output the result
-	sha1_update(&sha1_ctx, k_opad, SHA1_BLOCK_LENGTH);
-  sha1_update(&sha1_ctx, md_value, md_len);
-  sha1_final(&sha1_ctx, digest);
-	/*******************************************************************/
-
-	printf("digest len is %d\n", md_len);
-	for (i = 0; i < md_len; i++)
-		printf("%02x", digest[i]);
-	printf("\n");
-}
 int main()
 {
   int i = 0;
   uint8_t key[20];
+  unsigned char digest[20];
 
 	for (i = 0; i < 20; i++)
 		key[i] = i;
@@ -197,7 +140,7 @@ int main()
   char *message = "Sample message for keylen<blocklen";
 	int message_len = strlen(message);
 
-  __hmac_sha1(key, key_len, message, message_len);
+  __hmac_sha1(key, key_len, message, message_len, digest);
   
 	hmac_sha1();
 	return 0;

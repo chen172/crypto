@@ -20,7 +20,7 @@
 /*********************** FUNCTION DEFINITIONS ***********************/
 // 对一个block数据的处理 
 
-void sha1_transform(SHA1_CTX *ctx, const BYTE data[])
+DEVICE void sha1_transform(SHA1_CTX *ctx, const BYTE data[])
 {
 	WORD a, b, c, d, e, i, j, t, m[80];
 
@@ -80,7 +80,7 @@ void sha1_transform(SHA1_CTX *ctx, const BYTE data[])
 	ctx->state[4] += e;
 }
 
-void sha1_init(SHA1_CTX *ctx)
+DEVICE void sha1_init(SHA1_CTX *ctx)
 {
 	ctx->datalen = 0;
 	ctx->bitlen = 0;
@@ -97,7 +97,7 @@ void sha1_init(SHA1_CTX *ctx)
 	ctx->k[3] = 0xca62c1d6;
 }
 
-void sha1_update(SHA1_CTX *ctx, const BYTE data[], size_t len)
+DEVICE void sha1_update(SHA1_CTX *ctx, const BYTE data[], size_t len)
 {
 	size_t i;
 
@@ -117,7 +117,7 @@ void sha1_update(SHA1_CTX *ctx, const BYTE data[], size_t len)
 	}
 }
 
-void sha1_final(SHA1_CTX *ctx, BYTE hash[])
+DEVICE void sha1_final(SHA1_CTX *ctx, BYTE hash[])
 {
 	WORD i;
 

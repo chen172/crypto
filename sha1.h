@@ -9,6 +9,15 @@
 #ifndef SHA1_H
 #define SHA1_H
 
+#if __CUDACC__
+#define DEVICE __device__
+#define GLOBAL __global__
+#else
+#define DEVICE
+#define GLOBAL
+#endif
+
+
 /*************************** HEADER FILES ***************************/
 #include <stddef.h>
 
@@ -28,8 +37,8 @@ typedef struct {
 } SHA1_CTX;
 
 /*********************** FUNCTION DECLARATIONS **********************/
-void sha1_init(SHA1_CTX *ctx);
-void sha1_update(SHA1_CTX *ctx, const BYTE data[], size_t len);
-void sha1_final(SHA1_CTX *ctx, BYTE hash[]);
+DEVICE void sha1_init(SHA1_CTX *ctx);
+DEVICE void sha1_update(SHA1_CTX *ctx, const BYTE data[], size_t len);
+DEVICE void sha1_final(SHA1_CTX *ctx, BYTE hash[]);
 
 #endif   // SHA1_H
