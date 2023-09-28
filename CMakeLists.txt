@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(Program hmac)
+set(Program hmacCPU)
 project(${Program} LANGUAGES C)
 
 #optimize options
@@ -16,7 +16,7 @@ set(CRYPTO_LIBS "${THIRD_PARTY_DIR}/openssl_x64-windows/lib/libcrypto.lib")
 set(SSL_LIBS "${THIRD_PARTY_DIR}/openssl_x64-windows/lib/libssl.lib")
 
 add_executable(${Program}
-	hmac.c
+	hmacCPU.c
 	sha1.c
 )
 

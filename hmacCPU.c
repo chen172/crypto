@@ -158,7 +158,7 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 	OpenSSL_add_all_algorithms();
 
 	unsigned char md_value[EVP_MAX_MD_SIZE];
-	unsigned int md_len;
+	unsigned int md_len = 20;
 	SHA1_CTX sha1_ctx;
 
 	// sha1 hash
@@ -188,6 +188,17 @@ __hmac_sha1(uint8_t *key, int len, char *message, int message_len) {
 }
 int main()
 {
+  int i = 0;
+  uint8_t key[20];
+
+	for (i = 0; i < 20; i++)
+		key[i] = i;
+	int key_len = sizeof(key);
+  char *message = "Sample message for keylen<blocklen";
+	int message_len = strlen(message);
+
+  __hmac_sha1(key, key_len, message, message_len);
+  
 	hmac_sha1();
 	return 0;
 }
