@@ -8,5 +8,7 @@ nvcc hmacCuda.cu hmac.cu sha1.cu -rdc=true -o hmacCuda
 1. Measure-Command {start-process .\hmacCuda.exe -wait}
 2. Measure-Command {start-process .\hmacCPU.exe -wait}
 
+Note: hmac.cu and hmac.c is same
+
 # Ref
 https://cuda-tutorial.readthedocs.io/en/latest/tutorials/tutorial01/
